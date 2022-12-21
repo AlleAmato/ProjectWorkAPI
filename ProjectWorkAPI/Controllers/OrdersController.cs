@@ -172,6 +172,8 @@ namespace ProjectWorkAPI.Controllers
                 try
                 {
                     order.OrderState = state;
+                    if (state.Id == 30) order.StartProductionDate = DateTime.Now;
+                    if (state.Id == 40) order.StopProductionDate = DateTime.Now;
                     await context.SaveChangesAsync();
                     return Ok();
                 }
